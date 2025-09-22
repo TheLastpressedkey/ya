@@ -134,11 +134,7 @@ export function Login() {
             </button>
           </form>
           
-          <div className="mt-6 p-4 bg-blue-50 rounded-xl">
-            <p className="text-sm text-blue-800 font-medium mb-2">Compte de démonstration :</p>
-            <p className="text-sm text-blue-700">Email: admin@portfolio.com</p>
-            <p className="text-sm text-blue-700">Mot de passe: admin123</p>
-          </div>
+         
         </div>
       </motion.div>
     </div>
