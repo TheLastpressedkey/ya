@@ -1,0 +1,406 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-purple-400 to-pink-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-purple-500 to-pink-500;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Modern button styles */
+.btn-gradient {
+  @apply bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium px-8 py-4 rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-outline {
+  @apply border-2 border-gray-200 text-gray-700 font-medium px-8 py-4 rounded-full hover:border-purple-300 hover:text-purple-600 hover:shadow-lg transition-all duration-300;
+}
+
+/* Card styles */
+.card-modern {
+  @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2;
+}
+
+.card-glass {
+  @apply bg-white/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-xl;
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500;
+}
+
+/* Typography */
+.heading-gradient {
+  @apply bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #8b5cf6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25;
+}
+
+/* Background patterns */
+.bg-dots {
+  background-image: radial-gradient(circle, #e5e7eb 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Modern form styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200 bg-white/50 backdrop-blur-sm;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200 bg-white/50 backdrop-blur-sm resize-none;
+}
+
+/* Status badges */
+.badge-success {
+  @apply px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full;
+}
+
+.badge-warning {
+  @apply px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full;
+}
+
+.badge-info {
+  @apply px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full;
+}
+
+.badge-gradient {
+  @apply px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-sm font-medium rounded-full;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .container-mobile {
+    @apply px-4;
+  }
+  
+  .text-responsive {
+    @apply text-3xl;
+  }
+}
+
+@media (min-width: 769px) {
+  .text-responsive {
+    @apply text-5xl;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dark-mode {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Custom selection */
+::selection {
+  @apply bg-purple-200 text-purple-900;
+}
+
+::-moz-selection {
+  @apply bg-purple-200 text-purple-900;
+}
+
+/* Image effects */
+.image-hover-zoom {
+  @apply transition-transform duration-500 hover:scale-110;
+}
+
+.image-overlay {
+  @apply relative overflow-hidden;
+}
+
+.image-overlay::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-t from-black/50 via-transparent opacity-0 transition-opacity duration-300;
+}
+
+.image-overlay:hover::after {
+  @apply opacity-100;
+}
+
+/* Navigation styles */
+.nav-link {
+  @apply relative px-4 py-2 text-sm font-medium transition-all duration-300;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* Social icons */
+.social-icon {
+  @apply p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white;
+}
+
+/* Project grid */
+.project-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.project-card {
+  @apply bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2;
+}
+
+/* Admin styles */
+.admin-sidebar {
+  @apply w-64 bg-white shadow-lg border-r border-gray-200;
+}
+
+.admin-nav-item {
+  @apply flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200;
+}
+
+.admin-nav-item.active {
+  @apply bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700;
+}
+
+.admin-nav-item:hover:not(.active) {
+  @apply bg-gray-100 text-gray-900;
+}
+
+/* Dashboard cards */
+.dashboard-card {
+  @apply bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300;
+}
+
+.stat-card {
+  @apply bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+}
+
+/* Form styles for admin */
+.admin-form {
+  @apply space-y-6 bg-white rounded-2xl shadow-lg p-8;
+}
+
+.admin-input {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200;
+}
+
+.admin-textarea {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200 resize-none;
+}
+
+.admin-select {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-4 focus:ring-purple-500/20 focus:border-purple-500 transition-all duration-200 bg-white;
+}
+
+.admin-button {
+  @apply px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105;
+}
+
+.admin-button-secondary {
+  @apply px-6 py-3 bg-white text-gray-700 font-medium rounded-xl border border-gray-200 hover:border-purple-300 hover:text-purple-600 hover:shadow-lg transition-all duration-300;
+}
+
+/* Table styles */
+.admin-table {
+  @apply w-full bg-white rounded-2xl shadow-lg overflow-hidden;
+}
+
+.admin-table th {
+  @apply px-6 py-4 bg-gray-50 text-left text-sm font-semibold text-gray-900 border-b border-gray-200;
+}
+
+.admin-table td {
+  @apply px-6 py-4 text-sm text-gray-700 border-b border-gray-100;
+}
+
+.admin-table tr:hover {
+  @apply bg-gray-50;
+}
+
+/* Modal styles */
+.modal-overlay {
+  @apply fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+}
+
+.modal-content {
+  @apply bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl;
+}
+
+/* Toast notifications */
+.toast {
+  @apply fixed top-4 right-4 z-50 p-4 rounded-xl shadow-lg backdrop-blur-sm;
+}
+
+.toast-success {
+  @apply bg-green-100/90 text-green-800 border border-green-200;
+}
+
+.toast-error {
+  @apply bg-red-100/90 text-red-800 border border-red-200;
+}
+
+.toast-info {
+  @apply bg-blue-100/90 text-blue-800 border border-blue-200;
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+.skeleton-text {
+  @apply h-4 bg-gray-200 rounded animate-pulse;
+}
+
+.skeleton-avatar {
+  @apply w-12 h-12 bg-gray-200 rounded-full animate-pulse;
+}
+
+/* Empty states */
+.empty-state {
+  @apply text-center py-20;
+}
+
+.empty-state-icon {
+  @apply w-24 h-24 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-6;
+}
+
+/* Utility classes */
+.text-gradient {
+  @apply bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent;
+}
+
+.bg-gradient-primary {
+  @apply bg-gradient-to-r from-purple-600 to-pink-600;
+}
+
+.border-gradient {
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #8b5cf6, #ec4899) border-box;
+  border: 2px solid transparent;
+}
+
+.shadow-gradient {
+  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.3), 0 10px 10px -5px rgba(236, 72, 153, 0.1);
+}
